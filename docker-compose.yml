@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  yapi-mongo:
+    image: mongo:4
+    container_name: yapi-mongo
+    ports:
+      - 27017:27017
+    networks:
+      - yapi-net
+  yapi-web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: yapi:v192
+    container_name: yapi-web
+    ports:
+      - 3000:3000
+      - 9090:9090
+    depends_on:
+      - yapi-mongo
+    volumes:
+      - ./api/192:/api/192
+    networks:
+      - yapi-net
+    # 初始化
+    #command: "yapi server"
+    # 日常启动
+    command: "node /api/192/vendors/server/app.js"
+networks:
+  yapi-net:
+    external: true
