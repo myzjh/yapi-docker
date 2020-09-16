@@ -3,7 +3,7 @@
   "adminAccount": "admin@admin.com",
   "timeout":120000,
   "db": {
-    "servername": "yapi-mongo",
+    "servername": "yapi-mongo",#9090 mongo addr
     "DATABASE": "yapi",
     "port": 27017
   }
