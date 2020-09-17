@@ -4,7 +4,7 @@ COPY yapi-1.9.2.tar.gz /home
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
   apk update && apk add --no-cache git python make openssl tar gcc && \
-  cd /home && tar zxvf yapi-1.9.2.tar.gz && mkdir /api && mv /home/yapi-1.9.2 /api/192 
+  cd /home && tar zxvf yapi-1.9.2.tar.gz && mv /home/yapi-1.9.2 /api/192
 
 FROM node:12-alpine
 WORKDIR "/api/192"

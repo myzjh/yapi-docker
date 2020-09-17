@@ -25,7 +25,7 @@ services:
       - yapi-net
     # 初始化
     #command: "yapi server"
-    # 日常启动
+    # 日常启动 初始化后生成vendors目录
     command: "node /api/192/vendors/server/app.js"
 networks:
   yapi-net:
