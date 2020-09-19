@@ -19,14 +19,14 @@ services:
       - 9090:9090
     depends_on:
       - yapi-mongo
-    volumes:
-      - ./api/192:/api/192
+#    volumes:
+#      - ./run:/yapi
     networks:
       - yapi-net
     # 初始化
     #command: "yapi server"
-    # 日常启动 初始化后生成vendors目录
-    command: "node /api/192/vendors/server/app.js"
+    # 日常启动 初始化后生成vendors目录 "/yapi"为9090页面填写的部署路径
+    command: "node /yapi/vendors/server/app.js"
 networks:
   yapi-net:
     external: true
